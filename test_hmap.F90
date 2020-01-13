@@ -10,19 +10,23 @@ program test_hmap
 
     hm = dm_hash_map()
 
-    val = hm%insert("h", 5)
-    val = hm%insert("a", 2)
+    val = hm%insert("help", 5)
+    val = hm%insert("and", 2)
     val = hm%insert("z", 9)
-    val = hm%insert("Y", 8)
+    val = hm%insert("Yes", 8)
 
-   val =  hm%find("Y")
-   write(*,*) "find(Y)=", val
+   val =  hm%find("Yes")
+   write(*,*) "find(Yes)=", val
+   val =  hm%find("yes")
+   write(*,*) "find(yes)=", val
    val =  hm%find("K")
    write(*,*) "find(K)", val
-   val =  hm%find("a")
-   write(*,*) "find(a)=", val
-   val =  hm%find("e")
-   write(*,*) "find(e)", val
+   val =  hm%find("and")
+   write(*,*) "find(and)=", val
+   val =  hm%find("an")
+   write(*,*) "find(an)=", val
+   val =  hm%find("help")
+   write(*,*) "find(help)", val
 
     call hm%delete
 
