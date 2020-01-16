@@ -6,14 +6,16 @@
 #include <string>
 
 
-DMHM* create_hmap(){return new DMHashMap();}
+DMHM* create_hmap(){
+	return new DMHashMap();}
 
 void delete_hmap(DMHM* hm){delete hm;}
 
-// The const qualificators maps from the member function to pointers to the
-// class instances.
- int hmap_insert(DMHM* hm, const char* s, int c){
-	return hm->insert( std::string(s), c);
+int hmap_insert(DMHM* hm, const char* s, int c){
+	//printf("%s\n", "hmap_insert start");
+	int rv = hm->insert( std::string(s), c);
+	//printf("%s\n", "hmap_insert end");
+	return rv;
 
 }
 

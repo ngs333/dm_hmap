@@ -3,7 +3,7 @@ extern "C" {
     class DMHashMap;
     typedef DMHashMap DMHM;
 #else
-    // From the C side, we use an opaque pointer.
+    // Use an opaque pointer from the C side
     typedef struct DMHM DMHM;
 #endif
 

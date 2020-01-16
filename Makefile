@@ -15,13 +15,16 @@ else ifeq ($(CC),icc)
 	CC=icc
 	MPFTN=mpiifort
  	COMPHOME=$(INTELHOME)
- 	FFLAGS=-stand f18 -g -warn
- 	CXX=icc
- 	CFLAGS=-Wall
+ 	FFLAGS=-stand f18 -g -warn  -gxx-name=c++ -cxxlib=/opt/gcc/9.2.0/ -cxxlib
+ 	CXX=icpc
+ 	CFLAGS=-Wall -g -std=c++14  -gxx-name=c++ -cxxlib=/opt/gcc/9.2.0/
 endif
 LDFLAGS = -lstdc++
 
 INCLUDE= -I$(COMPHOME)/include/c++/9.2.0
+
+#NOTE: -std=c++XY(XY is 11,14, or 17) required to build with icc
+   #-no-gcc-include-dir 
 
 
 all: test_hmap
@@ -46,4 +49,4 @@ DMHashMap.o:
 	$(CXX)  $(INCLUDE) $(CFLAGS) -c $^  DMHashMap.cpp
 
 clean :
-	${RM} -rf *.o *.mod test.x
+	${RM} -rf *.o *.mod test_hmap.x

@@ -4,8 +4,8 @@
 #include <unordered_map>
 
 int DMHashMap::insert(const std::string &s, const int v) {
-		//mymap.insert(s, v);
-		mymap[std::string(s)] = v ;
+	    //mymap.insert(std::pair<std::string, int>(s,v));
+		mymap[s] = v ;
 		return v;
 }
 int DMHashMap::find(const std::string &a) {
@@ -14,7 +14,7 @@ int DMHashMap::find(const std::string &a) {
 		std::unordered_map<std::string, int>::const_iterator found = mymap.find(a);
 
 		if (found == mymap.end()) {
-			return 0; //TODO 0 --> some convention
+			return 0; //TODO: 0 --> some convention
 		} else {
 			return found->second;
 		}
